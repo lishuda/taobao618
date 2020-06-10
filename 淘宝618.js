@@ -1,13 +1,22 @@
-
+// 读取设备信息
 auto.waitFor();
+toast("魅族16X专用");
 var height = device.height;
 var width = device.width;
 setScreenMetrics(width, height);
-
+// 打开淘宝，分辨率需根据自己设备调整
+launch("com.taobao.taobao");
+sleep(random(5e3, 6e3));
+click(877, 1323);
+sleep(random(6e3, 7e3));
+click(939, 1876);
+sleep(random(2e3, 3e3));
+// 主程序
 click1("签到");
 click1("去兑换");
 swipe1("去浏览");
 
+// 点击程序
 function click1(name){
     if (className("android.widget.Button").text(name).exists()){
         toast("存在" + name);
@@ -19,7 +28,7 @@ function click1(name){
         toast("已完成" + name);
     }
 }
-
+// 滑动程序
 function swipe1(name){
     while(textContains(name).exists()){
         textContains(name).findOne().click();
